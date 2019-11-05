@@ -16,13 +16,36 @@ public class MainGIT {
 		System.out.println("Opsi : ");
 		Scanner sc = new Scanner(System.in);
 		Menus = sc.nextInt();
+		ArrayList inputgadai = new ArrayList();
 		switch(Menus) {
-		case 1 :
-			break;
-		case 2 :
-			break;
-		case 3 :
-			break;
+			case 1 :
+				inputgadai.add(Gadai.gadai());
+				break;
+			case 2 :
+				KelasTebus tebus = new KelasTebus();
+					ArrayList listInput = tebus.OrderID(inputgadai);
+					tebus.ViewTebus(listInput);
+					boolean stopcase2 = false;
+					while(stopcase2==false){
+					try {
+						stopcase2 = true;
+						System.out.print("Masukan ID barang yang ingin di tebus : ");
+						int ID = sc.nextInt();
+						System.out.print("Masukan biaya yang ingin ditebus :");
+						double biaya = sc.nextDouble();
+						tebus.ProcessTebus(listInput, biaya, ID);
+						tebus.ViewTebus(listInput);
+					}
+					catch (Exception e) {
+						System.out.println("Mohon masukan bilangan yang sesuai");
+						sc.next();
+						continue;
+					}
+					};		
+				break;
+			case 3 :
+				
+				break;
 		default:
 		}
 	}
