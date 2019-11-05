@@ -61,16 +61,21 @@ public class KelasTebus {
 	public ArrayList ProcessTebus(ArrayList listInput, double biaya,int ID){
 		boolean morethan = false;
 		boolean valueID = false;
+		boolean modsepuluh = false;
 		for(int i=0;i<listInput.size();i++){
 			List find = (List) listInput.get(i);
 			if(ID==(int)find.get(0)){
 				valueID=true;
 				if(biaya<=(double)find.get(find.size()-1) && biaya>=10000){
-					morethan = true;
-					biaya = (double) find.get(find.size()-1) - biaya;
-					find.set(find.size()-1, biaya);
-					if((double)find.get(find.size()-1)==0){
-						find.set(find.size()-2, "Lunas");
+					if(biaya%10000==0){
+						morethan = true;
+						modsepuluh = true;
+						morethan = true;
+						biaya = (double) find.get(find.size()-1) - biaya;
+						find.set(find.size()-1, biaya);
+						if((double)find.get(find.size()-1)==0){
+							find.set(find.size()-2, "Lunas");
+					}
 				}
 			}
 		}
@@ -78,7 +83,7 @@ public class KelasTebus {
 			System.out.println("Mohon maaf, ID yang anda masukan salah");
 			morethan=true;
 		}
-		if(morethan==false){
+		if(morethan==false || modsepuluh==false){
 			System.out.println("Mohon maaf, Uang yang anda masukan tidak memenuhi syarat");
 		}
 
