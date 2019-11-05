@@ -44,7 +44,11 @@ public class MainGIT {
 					};		
 				break;
 			case 3 :
-				
+				InventoryBarang InventBarang = new InventoryBarang();
+				InventBarang.Inventory(inputgadai);					
+				break;
+			case 4 :
+				stop = true;
 				break;
 		default:
 		}
