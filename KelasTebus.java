@@ -35,9 +35,41 @@ public class KelasTebus {
 		return getAll;
 		
 	}
-	public static void main(String[] args) {
-		KelasTebus tebus = new KelasTebus();
-		System.out.println(tebus.ReadInput("Sinta Amelia", "Laptop", "Laptop bagus", 5000000));
+
+	public ArrayList OrderID(ArrayList Allinput){		
 		
+		if(Allinput.size()>1){
+			for(int i = 0; i<Allinput.size();i++){
+				List neew =  (List) Allinput.get(i);
+				neew.set(0, i+1);
+			}
+		}
+		return Allinput;
+	
 	}
+
+		public void ShowTable(ArrayList k){
+		for(int i=0;i<k.size();i++){
+			List data = (List) k.get(i);
+			for(int j =0;j<data.size();j++){
+				
+				System.out.printf("%1$15s |",data.get(j));
+				}
+			System.out.println("");					
+			}}
+	
+	public ArrayList ProcessTebus(ArrayList listInput, double biaya,int ID){
+		for(int i=0;i<listInput.size();i++){
+			List find = (List) listInput.get(i);
+			if(ID==(int)find.get(0)){
+				biaya = (double) find.get(find.size()-1) - biaya;
+				find.set(find.size()-1, biaya);
+				if((double)find.get(find.size()-1)==0){
+					find.set(find.size()-2, "Lunas");
+				}
+			}
+		}
+		return listInput;
+	}
+	
 }
