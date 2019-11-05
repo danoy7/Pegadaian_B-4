@@ -6,11 +6,12 @@ public class Gadai {
 		boolean stnama = false;
 		boolean stcategory = false;
 		boolean stprice = false;
+		boolean stdes = false;
 		while (status) {
 			try {
 				Scanner input = new Scanner (System.in);
 				
-				System.out.println("-------- Masukan Data yang di perluakan-------");
+				System.out.println("-------- Masukan Data yang di perlukan-------");
 				System.out.print("Nama : ");
 				String name = input.next();
 				System.out.print("Produk Category :");
@@ -29,14 +30,16 @@ public class Gadai {
 				}else {
 					System.out.println("Barang gadai harus diantara barang berikut : Laptop, Motor, Emas");
 				}
-				if((stnama)&&(stcategory)) {
+				if(des.contains(" ")==true){
+					//stdes=true;
+				}else {
+					System.out.println("deskripsi harus lebih dari dua kata");
+				}
+				if((stnama)&&(stcategory)&&(stdes)) {
 					status=false;
 				}else {
 					status = true;
 				}
-				//if() {
-				//	
-				//}
 			}catch(Exception e) {
 				System.out.println("Tolong Isi price Dengan Integer");
 			}
