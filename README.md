@@ -14,7 +14,7 @@ Ketentuan pada menu Tebus:
 
 Pembagian Tugas:
 1. Ananda2255 (Ananda M. Nuriawan) - Menu Gadai
-2. danoy7 (Dany Rahmana) - Menu Tampilkan Inventory
-3. erindwifentika (Erin Dwi Fentika) - Menu Gadai
-4. FebrianysAzwar (Febriany Syafitri) - Main Menu
-5. Anorever (Sinta Amelia) - Menu Tebus
+2. danoy7 (Dany Rahmana) - Menu Tampilkan Inventory, Main Menu, Menu Tebus
+3. erindwifentika (Erin Dwi Fentika) - Menu Gadai 
+4. FebrianysAzwar (Febriany Syafitri) - Main Menu, Menu Gadai
+5. Anorever (Sinta Amelia) - Menu Tebus, Main Menu, Menu Tampilkan Inventory
