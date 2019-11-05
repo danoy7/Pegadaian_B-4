@@ -1,5 +1,8 @@
 package com.pegadaian.git;
 import com.pegadaian.git.Gadai;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainGIT {
@@ -11,6 +14,7 @@ public class MainGIT {
 		Scanner sc = new Scanner(System.in);
 		String formatter = ("|%1$-25s|");
 		String specialFormatter = "|%1$-5s|%2$-15s|%3$-16s|%4$-20s|%5$-16s|";
+		ArrayList inputgadai = new ArrayList();
 		while(stop==false) {
 			try {
 				System.out.println("Pegadaian System");
@@ -23,25 +27,42 @@ public class MainGIT {
 				Menus = sc.nextInt();
 				switch(Menus) {
 				case 1 :
-					/*System.out.println("Detail Information :");
-					System.out.println("====================");
-					System.out.print("Name : ");
-					System.out.println("Product Category : ");
-					System.out.println("Description : ");
-					System.out.println("Price : ");*/
-					Gadai.gadai();
-					stop = true;
+					inputgadai.add(Gadai.gadai());
+					
 					break;
 				case 2 :
 					System.out.println("-----------------------------------------------------------------------------");
 					System.out.println(String.format(specialFormatter, "ID","Product","Price", "Status","Utang"));
 					System.out.println("-----------------------------------------------------------------------------");
-					stop = true;
+					KelasTebus tebus = new KelasTebus();
+					ArrayList listInput = tebus.OrderID(inputgadai);
+					tebus.ViewTebus(listInput);
+					boolean stopcase2 = false;
+					while(stopcase2==false){
+					try {
+						stopcase2 = true;
+						System.out.print("Masukan ID barang yang ingin di tebus : ");
+						int ID = sc.nextInt();
+						System.out.print("Masukan biaya yang ingin ditebus :");
+						double biaya = sc.nextDouble();
+						tebus.ProcessTebus(listInput, biaya, ID);
+						tebus.ViewTebus(listInput);
+					}
+					catch (Exception e) {
+						System.out.println("Mohon masukan bilangan yang sesuai");
+						sc.next();
+						continue;
+					}
+					};
 					break;
 				case 3 :
 					System.out.println("-----------------------------------------------------------------------------");
 					System.out.println(String.format(specialFormatter, "ID","Nama","Product", "Description","Price"));
 					System.out.println("-----------------------------------------------------------------------------");
+					InventoryBarang InventBarang = new InventoryBarang();
+					InventBarang.Inventory(inputgadai);					
+					break;
+				case 4 :
 					stop = true;
 					break;
 				default:
