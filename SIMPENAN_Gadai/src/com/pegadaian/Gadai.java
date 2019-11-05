@@ -1,8 +1,44 @@
-package com.pegadaian.git;
 
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Gadai {
+	public static ArrayList allinput = new ArrayList();
+	public ArrayList ReadInput(int ID,String nama,String katagori, String desc, double Price){
+		BarangGadai input = new BarangGadai(nama,katagori,desc,Price);
+		input.setName(nama);
+		input.setDescription(desc);
+		input.setProduct_category(katagori);
+		input.setPrice(Price);
+		
+		ArrayList getAll = new ArrayList();
+		getAll.add(ID);
+		getAll.add(input.getName());
+		getAll.add(input.getProduct_category());
+		getAll.add(input.getDescription());
+		getAll.add(input.getPrice());
+		double Utang = input.getPrice();
+		if(Utang==0){
+			getAll.add("Lunas");
+		}
+		else{
+			getAll.add("Gadai");
+		}
+		getAll.add(Utang);
+		return getAll;
+	}
+	public ArrayList OrderID(ArrayList Allinput){		
+		
+		if(Allinput.size()>1){
+			for(int i = 0; i<Allinput.size();i++){
+				List neew =  (List) Allinput.get(i);
+				neew.set(0, i+1);
+			}
+		}
+		return Allinput;
+	}
 	//public void filterGadai (String name,String category, String description, int price) {
 	public static void gadai() {
 		
@@ -12,7 +48,7 @@ public class Gadai {
 		String name = "";
 		String category = "";
 		String description ="";
-		int price =0;
+		double price =0;
 		System.out.println("-------- Masukan Data yang Diperlukan-------");
 		while (status) {
 			try {
@@ -56,7 +92,7 @@ public class Gadai {
 		while(status) {
 			try {
 				System.out.println("Price :");
-				price = input.nextInt();
+				price = input.nextDouble();
 				if (price %10000 == 0) {
 					status=false;
 				}
@@ -65,7 +101,14 @@ public class Gadai {
 				input.next();
 			}
 		}
-		status = true;			 
-		
+		status = true;
+		Gadai bgadai = new Gadai();
+		allinput.add(bgadai.ReadInput(1,name,category,description,price));
+		System.out.println(allinput);
 	}
+	public static void main(String[] args) {
+		Gadai bgadai = new Gadai();
+		bgadai.gadai();
+	}
+	
 }

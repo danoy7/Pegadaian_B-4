@@ -1,11 +1,11 @@
-package com.pegadaian.git;
+
 
 public class BarangGadai {
 	String name;
 	String product_category;
 	String description;
-	int price;
-	public BarangGadai(String name, String product_category, String description, int price) {
+	double price;
+	public BarangGadai(String name, String product_category, String description, double price) {
 		super();
 		this.name = name;
 		this.product_category = product_category;
@@ -30,10 +30,10 @@ public class BarangGadai {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	
