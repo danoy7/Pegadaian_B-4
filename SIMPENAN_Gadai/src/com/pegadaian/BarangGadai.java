@@ -1,4 +1,4 @@
-package com.pegadaian.git;
+
 
 public class BarangGadai {
 	String name;
