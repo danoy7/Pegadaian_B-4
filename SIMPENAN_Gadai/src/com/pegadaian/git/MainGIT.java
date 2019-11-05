@@ -1,5 +1,5 @@
 package com.pegadaian.git;
-import com.pegadaian.git.GadaiMenu;
+import com.pegadaian.git.Gadai;
 import java.util.Scanner;
 
 public class MainGIT {
@@ -23,12 +23,13 @@ public class MainGIT {
 				Menus = sc.nextInt();
 				switch(Menus) {
 				case 1 :
-					System.out.println("Detail Information :");
+					/*System.out.println("Detail Information :");
 					System.out.println("====================");
 					System.out.print("Name : ");
 					System.out.println("Product Category : ");
 					System.out.println("Description : ");
-					System.out.println("Price : ");
+					System.out.println("Price : ");*/
+					Gadai.gadai();
 					stop = true;
 					break;
 				case 2 :
