@@ -16,8 +16,9 @@ public class Gadai {
 				String name = input.next();
 				System.out.print("Produk Category :");
 				String katagori = input.next();
+				input.nextLine();
 				System.out.print("Deskription :");
-				String des = input.next();
+				String des = input.nextLine();
 				System.out.println("Price :");
 				int price = input.nextInt();
 				if ((name.length()>3 )&&(name.length()<15) ) {
@@ -31,11 +32,16 @@ public class Gadai {
 					System.out.println("Barang gadai harus diantara barang berikut : Laptop, Motor, Emas");
 				}
 				if(des.contains(" ")==true){
-					//stdes=true;
+					stdes=true;
 				}else {
 					System.out.println("deskripsi harus lebih dari dua kata");
 				}
-				if((stnama)&&(stcategory)&&(stdes)) {
+				if (price %10000 == 0) {
+					stprice=true;
+				}else {
+					System.out.println("harus kelipatan 10000");
+				}
+				if((stnama)&&(stcategory)&&(stdes)&&(stprice)) {
 					status=false;
 				}else {
 					status = true;
