@@ -48,7 +48,7 @@ public class KelasTebus {
 	
 	}
 
-		public void ShowTable(ArrayList k){
+		public void ViewTebus(ArrayList k){
 		for(int i=0;i<k.size();i++){
 			List data = (List) k.get(i);
 			for(int j =0;j<data.size();j++){
@@ -59,16 +59,29 @@ public class KelasTebus {
 			}}
 	
 	public ArrayList ProcessTebus(ArrayList listInput, double biaya,int ID){
+		boolean morethan = false;
+		boolean valueID = false;
 		for(int i=0;i<listInput.size();i++){
 			List find = (List) listInput.get(i);
 			if(ID==(int)find.get(0)){
-				biaya = (double) find.get(find.size()-1) - biaya;
-				find.set(find.size()-1, biaya);
-				if((double)find.get(find.size()-1)==0){
-					find.set(find.size()-2, "Lunas");
+				valueID=true;
+				if(biaya<=(double)find.get(find.size()-1) && biaya>=10000){
+					morethan = true;
+					biaya = (double) find.get(find.size()-1) - biaya;
+					find.set(find.size()-1, biaya);
+					if((double)find.get(find.size()-1)==0){
+						find.set(find.size()-2, "Lunas");
 				}
 			}
 		}
+		if(valueID==false){
+			System.out.println("Mohon maaf, ID yang anda masukan salah");
+			morethan=true;
+		}
+		if(morethan==false){
+			System.out.println("Mohon maaf, Uang yang anda masukan tidak memenuhi syarat");
+		}
+
 		return listInput;
 	}
 	
