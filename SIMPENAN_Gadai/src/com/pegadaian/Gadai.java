@@ -1,4 +1,5 @@
-
+package com.pegadaian.git;
+import com.pegadaian.git.BarangGadai;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,28 +7,31 @@ import java.util.Scanner;
 
 public class Gadai {
 	public static ArrayList allinput = new ArrayList();
-	public ArrayList ReadInput(int ID,String nama,String katagori, String desc, double Price){
-		BarangGadai input = new BarangGadai(nama,katagori,desc,Price);
+	public ArrayList ReadInput(int ID, String nama,String inputProduk, String desc, double Price){
+		GadaiMenu input = new GadaiMenu(nama,inputProduk,desc,Price);
 		input.setName(nama);
+		ArrayList<String> listProduk = new ArrayList<String>();
+		 listProduk.add("Laptop");
+		 listProduk.add("Motor");
+		 listProduk.add("Emas");
+		    for (int i = 0; i < listProduk.size(); i++) {
+		      if(listProduk.get(i)==inputProduk){
+		    	  input.setProduct_category(inputProduk);
+		      }
+		    }
 		input.setDescription(desc);
-		input.setProduct_category(katagori);
+		input.getProduct_category();
 		input.setPrice(Price);
+		input.getPrice();
 		
 		ArrayList getAll = new ArrayList();
-		getAll.add(ID);
 		getAll.add(input.getName());
 		getAll.add(input.getProduct_category());
 		getAll.add(input.getDescription());
 		getAll.add(input.getPrice());
-		double Utang = input.getPrice();
-		if(Utang==0){
-			getAll.add("Lunas");
-		}
-		else{
-			getAll.add("Gadai");
-		}
-		getAll.add(Utang);
+		
 		return getAll;
+		
 	}
 	public ArrayList OrderID(ArrayList Allinput){		
 		
@@ -40,7 +44,7 @@ public class Gadai {
 		return Allinput;
 	}
 	//public void filterGadai (String name,String category, String description, int price) {
-	public static void gadai() {
+	public static ArrayList gadai() {
 		
 	//}
 		Scanner input = new Scanner (System.in);
@@ -102,13 +106,13 @@ public class Gadai {
 			}
 		}
 		status = true;
-		Gadai bgadai = new Gadai();
-		allinput.add(bgadai.ReadInput(1,name,category,description,price));
-		System.out.println(allinput);
+		ArrayList inputlist = new ArrayList();
+	
+		KelasTebus tebus = new KelasTebus();
+		inputlist = tebus.ReadInput(1,name,category,description,price);
+		
+		return inputlist;
 	}
-	public static void main(String[] args) {
-		Gadai bgadai = new Gadai();
-		bgadai.gadai();
-	}
+	
 	
 }
