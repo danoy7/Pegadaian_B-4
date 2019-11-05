@@ -23,8 +23,16 @@ public class Gadai {
 					stnama=true;
 				}else {
 					System.out.println("Nama Harus lebih dari 3 dan kurang dari 15 karakter");
-				}if(stnama) {
+				}
+				if ((katagori.equalsIgnoreCase("laptop"))||(katagori.equalsIgnoreCase("motor"))||(katagori.equalsIgnoreCase("emas"))) {
+					stcategory=true;
+				}else {
+					System.out.println("Barang gadai harus diantara barang berikut : Laptop, Motor, Emas");
+				}
+				if((stnama)&&(stcategory)) {
 					status=false;
+				}else {
+					status = true;
 				}
 				//if() {
 				//	
