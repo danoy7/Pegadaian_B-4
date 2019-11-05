@@ -28,22 +28,22 @@ public class Gadai {
 					status = false;
 					//System.out.println("Nama Harus lebih dari 3 dan kurang dari 15 karakter");
 				}
-				if ((category.equalsIgnoreCase("laptop"))||(category.equalsIgnoreCase("motor"))||(katagori.equalsIgnoreCase("emas"))) {
+				if ((category.equalsIgnoreCase("laptop"))||(category.equalsIgnoreCase("motor"))||(category.equalsIgnoreCase("emas"))) {
 					stcategory=true;
 				}else {
-					//System.out.println("Barang gadai harus diantara barang berikut : Laptop, Motor, Emas");
+					//System.out.println("Barang gadai harus diantara barang berikut: Laptop, Motor, dan Emas");
 					status = false;
 				}
 				if(description.contains(" ")==true){
 					stdescription=true;
 				}else {
-					//System.out.println("deskripsi harus lebih dari dua kata");
+					//System.out.println("Deskripsi harus lebih dari dua kata");
 					status = false;
 				}
 				if (price %10000 == 0) {
 					stprice=true;
 				}else {
-					//System.out.println("harus kelipatan 10000");
+					//System.out.println("Harga harus kelipatan 10.000");
 					status = false;
 				}
 				if((stnama)&&(stcategory)&&(stdescription)&&(stprice)) {
