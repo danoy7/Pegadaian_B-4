@@ -30,6 +30,9 @@ public class KelasTebus {
 		getAll.add(input.getPrice());
 		double Utang = input.getPrice();
 		if(Utang!=0){
+			getAll.add("Gadai");
+		}
+		else{
 			getAll.add("Lunas");
 		}
 		getAll.add(Utang);
@@ -59,8 +62,8 @@ public class KelasTebus {
 		for(int i=0;i<k.size();i++){
 			List data = (List) k.get(i);
 			for(int j =0;j<data.size();j++){
-				
-				System.out.printf("%1$15s |",data.get(j));
+				if(j!=1&&j!=3){
+				System.out.printf("%1$15s |",data.get(j));}
 				}
 			System.out.println("");					
 			}}
