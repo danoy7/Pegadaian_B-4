@@ -2,6 +2,7 @@ package com.pegadaian.git;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 public class InventoryBarang {
 	public void Inventory(ArrayList inputgadai) {
