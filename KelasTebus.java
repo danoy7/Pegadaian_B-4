@@ -1,4 +1,4 @@
-package com.pegadaian.ojt.TugasJava;
+package com.pegadaian.git;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +24,7 @@ public class KelasTebus {
 		
 		ArrayList getAll = new ArrayList();
 		getAll.add(ID);
-		getAll.add(input.getNama());
+		getAll.add(input.getName());
 		getAll.add(input.getProduct_category());
 		getAll.add(input.getDescription());
 		getAll.add(input.getPrice());
