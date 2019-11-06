@@ -7,42 +7,6 @@ import java.util.Scanner;
 
 public class Gadai {
 	public static ArrayList allinput = new ArrayList();
-	public ArrayList ReadInput(int ID, String nama,String inputProduk, String desc, double Price){
-		GadaiMenu input = new GadaiMenu(nama,inputProduk,desc,Price);
-		input.setName(nama);
-		ArrayList<String> listProduk = new ArrayList<String>();
-		 listProduk.add("Laptop");
-		 listProduk.add("Motor");
-		 listProduk.add("Emas");
-		    for (int i = 0; i < listProduk.size(); i++) {
-		      if(listProduk.get(i)==inputProduk){
-		    	  input.setProduct_category(inputProduk);
-		      }
-		    }
-		input.setDescription(desc);
-		input.getProduct_category();
-		input.setPrice(Price);
-		input.getPrice();
-		
-		ArrayList getAll = new ArrayList();
-		getAll.add(input.getName());
-		getAll.add(input.getProduct_category());
-		getAll.add(input.getDescription());
-		getAll.add(input.getPrice());
-		
-		return getAll;
-		
-	}
-	public ArrayList OrderID(ArrayList Allinput){		
-		
-		if(Allinput.size()>1){
-			for(int i = 0; i<Allinput.size();i++){
-				List neew =  (List) Allinput.get(i);
-				neew.set(0, i+1);
-			}
-		}
-		return Allinput;
-	}
 	//public void filterGadai (String name,String category, String description, int price) {
 	public static ArrayList gadai() {
 		
