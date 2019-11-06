@@ -5,26 +5,27 @@ import java.util.Arrays;
 import java.util.List;
 
 public class KelasTebus {
-	public ArrayList ReadInput(String nama,String inputProduk, String desc, double Price){
-		GadaiMenu input = new GadaiMenu();
-		input.setNama(nama);
+	public ArrayList ReadInput(int ID,String nama,String inputProduk, String desc, double Price){
+		BarangGadai input = new BarangGadai(nama,inputProduk,desc,Price);
+		input.setName(nama);
 		ArrayList<String> listProduk = new ArrayList<String>();
 		 listProduk.add("Laptop");
 		 listProduk.add("Motor");
 		 listProduk.add("Emas");
 		    for (int i = 0; i < listProduk.size(); i++) {
 		      if(listProduk.get(i)==inputProduk){
-		    	  input.setProduct_Category(inputProduk);
+		    	  input.setProduct_category(inputProduk);
 		      }
 		    }
 		input.setDescription(desc);
-		input.getProduct_Category();
+		input.getProduct_category();
 		input.setPrice(Price);
 		input.getPrice();
 		
 		ArrayList getAll = new ArrayList();
+		getAll.add(ID);
 		getAll.add(input.getNama());
-		getAll.add(input.getProduct_Category());
+		getAll.add(input.getProduct_category());
 		getAll.add(input.getDescription());
 		getAll.add(input.getPrice());
 		double Utang = input.getPrice();
@@ -49,6 +50,12 @@ public class KelasTebus {
 	}
 
 		public void ViewTebus(ArrayList k){
+		List<String> entityname = Arrays.asList("ID","Product","Price","Status","Utang");
+			for(int e=0;e<entityname.size();e++){
+				if(entityname.get(e)!=null){
+					String s = (String) entityname.get(e);
+					System.out.printf("%1$15s |",s);}}
+		System.out.println("");	
 		for(int i=0;i<k.size();i++){
 			List data = (List) k.get(i);
 			for(int j =0;j<data.size();j++){
@@ -87,7 +94,6 @@ public class KelasTebus {
 			System.out.println("Mohon maaf, Uang yang anda masukan tidak memenuhi syarat");
 		}
 
-		return listInput;
 	}
-	
-}
+	return listInput;
+}}
